@@ -1,13 +1,7 @@
 import 'es5-shim'
 import 'es6-shim'
 
-function htmlDecode(input){
-  var e = document.createElement('div');
-  e.innerHTML = input;
-  return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-}
-
-function decodeHTML(html) {
+export function decodeHTML(html) {
   let txt = document.createElement("textarea");
   txt.innerHTML = html;
   return txt.value;
@@ -27,7 +21,7 @@ function isString(val) {
     );
 }
 
-function deepDecodeHTML(json) {
+export function deepDecodeHTML(json) {
   return deepMap(json, mapHTML)
 }
 
@@ -54,14 +48,8 @@ function deepMap(obj, fn) {
   return obj;
 }
 
-function parseFormProps(props) {
+export function parseFormProps(props) {
   var element = document.createElement("div")
   element.innerHTML = props.substring(4)
   return JSON.parse(element.innerHTML)
 }
-
-module.exports = {
-  decodeHTML: decodeHTML,
-  deepDecodeHTML: deepDecodeHTML,
-  parseFormProps: parseFormProps
-};

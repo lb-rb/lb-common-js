@@ -1,17 +1,19 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.lbCommon = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.decodeHTML = decodeHTML;
+exports.deepDecodeHTML = deepDecodeHTML;
+exports.parseFormProps = parseFormProps;
 
 require('es5-shim');
 
 require('es6-shim');
-
-function htmlDecode(input) {
-  var e = document.createElement('div');
-  e.innerHTML = input;
-  return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-}
 
 function decodeHTML(html) {
   var txt = document.createElement("textarea");
@@ -59,12 +61,6 @@ function parseFormProps(props) {
   element.innerHTML = props.substring(4);
   return JSON.parse(element.innerHTML);
 }
-
-module.exports = {
-  decodeHTML: decodeHTML,
-  deepDecodeHTML: deepDecodeHTML,
-  parseFormProps: parseFormProps
-};
 
 },{"es5-shim":2,"es6-shim":3}],2:[function(require,module,exports){
 /*!
