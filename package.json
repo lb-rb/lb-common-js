@@ -1,0 +1,51 @@
+{
+  "name": "lb-common",
+  "description": "LB common",
+  "version": "0.0.1",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "LICENSE",
+    "README.md",
+    "dist/lb-common.js"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-tape-runner": "^2.0.1",
+    "babelify": "^8.0.0",
+    "browserify": "^16.2.2",
+    "eslint": "^4.19.1",
+    "faucet": "0.0.1",
+    "jsdom": "^11.11.0",
+    "tape": "^4.9.0"
+  },
+  "dependencies": {
+    "es5-shim": "^4.5.10",
+    "es6-shim": "^0.35.3"
+  },
+  "scripts": {
+    "test": "babel-tape-runner test/index.js | faucet",
+    "build": "browserify index.js -o dist/lb-common.js --standalone 'lb-common' -t [ babelify --presets [ 'env' ] ]"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lb-rb/lb-common-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lb-rb/lb-common-js.git"
+  },
+  "homepage": "https://github.com/lb-rb/lb-common-js.git",
+  "keywords": [
+    "common",
+    "lb",
+    "lb common"
+  ],
+  "author": "Firas Zaidan <firas@zaidan.de> (firas@zaidan.de)",
+  "license": "MIT"
+}
