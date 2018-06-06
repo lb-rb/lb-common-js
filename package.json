@@ -1,5 +1,5 @@
 {
-  "name": "@lb-rb/lb-common",
+  "name": "lb-common",
   "description": "LB common",
   "version": "0.0.2",
   "main": "index.js",
